@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "sixth_sections",
+  "info": {
+    "singularName": "sixth-section",
+    "pluralName": "sixth-sections",
+    "displayName": "Sixth-section",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "partners": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::partner.partner"
+    }
+  }
+}

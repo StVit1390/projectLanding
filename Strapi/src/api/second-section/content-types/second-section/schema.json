@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "second_sections",
+  "info": {
+    "singularName": "second-section",
+    "pluralName": "second-sections",
+    "displayName": "Second-section",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "tittle": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::project.project"
+    }
+  }
+}
