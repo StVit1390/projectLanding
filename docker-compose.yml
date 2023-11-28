@@ -1,0 +1,34 @@
+version: '3'
+services:
+  db:
+    image: postgres:13.0
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=qwerty123
+      - POSTGRES_DB=test
+
+  strapi:
+    build:
+      context: ./Strapi
+    container_name: strapi
+    env_file:
+     - ./Strapi/.env
+    ports:
+      - "1337:1337"
+    depends_on:
+      - db
+
+  landing:
+    build:
+      context: ./Landing
+      dockerfile: Dockerfile
+    container_name: landing
+    ports:
+      - "3000:3000"
+    depends_on:
+      - strapi
+
+volumes:
+  postgres_data:
