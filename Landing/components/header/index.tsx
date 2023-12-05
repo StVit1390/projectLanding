@@ -36,7 +36,8 @@ export const Header:FC = () => {
             })
         })
     },[local])
-
+    console.log('data',data);
+    
     return (
         <S.Header id='header'>
             <S.LogoWrap>
