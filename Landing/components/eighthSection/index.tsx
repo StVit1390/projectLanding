@@ -34,26 +34,6 @@ export const EighthSection:FC = () => {
     })
 
     const [err,setErr] = useState(false)
-    
-
-    // const postData = {
-    //     data : {
-    //     name: 'John Doe!',
-    //     email: 'johndoe@example.com',
-    //     phone: '123-456-7890',
-    //     message: 'This is a test message.',
-    //     }
-    // };
-
-    // // Make the POST request
-    // axios
-    //     .post('http://localhost:1337/api/supports', postData)
-    //     .then(response => {
-    //         console.log('Support request created:', response.data);
-    //     })
-    //     .catch(error => {
-    //         console.error('Error creating support request:', error);
-    //     });
 
     
     return (
@@ -91,7 +71,7 @@ export const EighthSection:FC = () => {
                                 value={formValues.phone}
                                 onChange={(e) => {
                                     setFormValues({ ...formValues, phone: e.target.value.replace(/[^\d+]/g,'') });
-                                    if (formValues.phone.match(/^(?:\+48\d{9}|0\d{8})$/)) {
+                                    if (formValues.phone.match(/^(?:\+48\d{8}|0\d{8})$/)) {
                                         setValidForm({ ...validForm, phone: true })
                                     } else {
                                         setValidForm({ ...validForm, phone: false })
@@ -150,7 +130,7 @@ export const EighthSection:FC = () => {
                     }
                     if (validForm.name && validForm.email && validForm.message && validForm.phone){
                         axios
-                            .post('http://localhost:1337/api/supports',{data: formValues})
+                            .post(`${process.env.NEXT_PUBLIC_STRAPI_URL}/supports`,{data: formValues})
                             .then(response => {
                                 console.log('Support request created:', response.data);
                             })
