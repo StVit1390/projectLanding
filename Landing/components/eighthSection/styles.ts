@@ -110,5 +110,5 @@ export const FormTittle = styled(Typography)`
 export const Err = styled('div')`
     color: red;
     position: absolute;
-    bottom: -35px;
+    bottom: -50px;
 `

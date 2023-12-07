@@ -148,13 +148,6 @@ export const EighthSection: FC = () => {
                     </>
                 }
             </S.FormWrap>
-            <Snackbar
-                open={isOpenSnackBar}
-                autoHideDuration={6000}
-                message="Your message has been sent successfully"
-            >
-                
-            </Snackbar>
         </S.SectionWrap>
     )
 }
