@@ -1,0 +1,27 @@
+{
+    "semi": false,
+    "singleQuote": true,
+    "jsxSingleQuote": true,
+    "printWidth": 80,
+    "tabWidth": 2,
+    "trailingComma": "es5",
+    "bracketSpacing": true,
+    "jsxBracketSameLine": false,
+    "arrowParens": "always",
+    "endOfLine": "auto",
+    "overrides": [
+        {
+            "files": [
+                "*.json",
+                "*.md",
+                "*.yml",
+                "*.yaml",
+                "*.css",
+                "*.scss"
+            ],
+            "options": {
+                "tabWidth": 2
+            }
+        }
+    ]
+}
