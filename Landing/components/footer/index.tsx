@@ -26,9 +26,16 @@ export const Footer:FC = () => {
         })
     }, [local])
 
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth', // Add smooth scrolling behavior
+        });
+    };
+
     return (
         <S.SectionWrap bgImg={data && data.background.data.attributes.url}>
-            <S.Logo src={`http://localhost:1337${data && data.logo.data.attributes.url}`}></S.Logo>
+            <S.Logo src={`http://localhost:3001${data && data.logo.data.attributes.url}`}></S.Logo>
             <S.Nav>
                 {data && data.menu_items.data.map((el:any)=>{
                     return (
@@ -70,9 +77,10 @@ export const Footer:FC = () => {
                 </S.Links>
             </S.SocialMedia>
             <S.UpBtn
-                href="#header"
+                
                 variant="outlined"
                 size="small"
+                onClick={scrollToTop}
                 endIcon={<ExpandLessIcon />}
                ></S.UpBtn>
             

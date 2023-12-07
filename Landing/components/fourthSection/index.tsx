@@ -35,7 +35,7 @@ export const FourthSection:FC = () => {
                         <Typography variant="h4">{data && data.attributes.quote}</Typography>
                     </S.FirstFloorLeft>
                     <S.FirstFloorRight>
-                        <S.Img img={`http://localhost:1337${data && data.attributes.img.data.attributes.url}`} />
+                        <S.Img img={`http://localhost:3001${data && data.attributes.img.data.attributes.url}`} />
                         <Typography variant="h5">Jach Dye CEO</Typography>
                         <Typography>{data && data.attributes.imgDescription}</Typography>
                     </S.FirstFloorRight>
@@ -46,7 +46,7 @@ export const FourthSection:FC = () => {
                         <Typography variant="h5">{data && data.attributes.subDescription}</Typography>
                     </S.SecondFloorLeft>
                     <S.oSecondFloorRight>
-                        <S.ImgBottom src={`http://localhost:1337${data && data.attributes.subImg.data.attributes.url}`} />
+                        <S.ImgBottom src={`http://localhost:3001${data && data.attributes.subImg.data.attributes.url}`} />
                     </S.oSecondFloorRight>
                 </S.SecondFloor>
             </S.FourthSectionContent>

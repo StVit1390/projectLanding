@@ -66,7 +66,7 @@ export const Content = styled('div') <ContentProps>`
     position: relative;
     &::before {
         content: '';
-        background-image: url(http://localhost:1337${props => props.waterMark});
+        background-image: url(http://localhost:3001${props => props.waterMark});
         position: absolute;
         bottom: 5%;
         right: ${({ justify }) => justify ? '65%' : '5%' };

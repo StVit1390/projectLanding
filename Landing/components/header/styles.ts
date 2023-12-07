@@ -41,6 +41,8 @@ export const Logo  = styled('img')`
     background-color: ${({theme})=>theme.palette.common.white};
     border: 10px solid ${({theme})=>theme.palette.common.white};
     border-radius: 10px;
+    z-index: 9999;
+    width: 200px;
     @media screen and (max-width: 1100px) {
        top: 0;
     }

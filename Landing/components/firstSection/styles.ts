@@ -142,6 +142,3 @@ export const Help = styled('a')`
     margin-top: 30px;
 `
 
-export const Btn = styled(Button)`
-    background-color: ${({theme})=> theme.palette.primary} !important;
-`

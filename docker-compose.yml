@@ -17,8 +17,9 @@ services:
      - ./Strapi/.env
     ports:
       - "1337:1337"
-    # depends_on:
-    #   - db
+    depends_on:
+      - db
+
 
   landing:
     build:

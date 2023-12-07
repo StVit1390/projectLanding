@@ -11,7 +11,7 @@ export const SectionWrap = styled('section') <SectionWrapProps>`
     position: relative;
     display: flex;
     justify-content: space-between;
-    background-image: url(http://localhost:1337${({ bgImg }) => bgImg});
+    background-image: url(http://localhost:3001${({ bgImg }) => bgImg});
     background-repeat: no-repeat;
     background-size: cover;
      @media screen and (max-width: 1400px) {
@@ -149,9 +149,9 @@ export const SocialIcon = styled('img')`
 export const UpBtn = styled(Button)`
     width: fit-content;
     border-radius: 50%;
-    position: absolute;
+    position: fixed;
     right: 3%;
-    bottom: 25%;
+    bottom: 10%;
     & span {
         margin: 0;
     };

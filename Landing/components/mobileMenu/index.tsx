@@ -38,7 +38,7 @@ export const MobileMenu: FC = () => {
     return (
         <S.SectionWrap>
             <S.NavMenu>
-                {data && data.items && data.items.map((item) => {
+                {data?.items && data.items.map((item) => {
                     return <S.Btn onClick={()=> setBurger(!burger)} key={item.id} href={`#${item.attributes.link}`}>{item.attributes.item}</S.Btn>
                 })}
             </S.NavMenu>

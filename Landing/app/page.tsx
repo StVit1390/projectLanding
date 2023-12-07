@@ -44,13 +44,10 @@ export default function Home() {
     const [local, setLocal] = useState('en')
     const [burger, setBurger] = useState(false)
 
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-
   useEffect(() => {
     const handleResize = () => {
       const newWidth = window.innerWidth;
       if (newWidth >= 650) setBurger(false)
-      setScreenWidth(newWidth);
     };
 
     window.addEventListener('resize', handleResize);
