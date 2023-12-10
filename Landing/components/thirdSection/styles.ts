@@ -9,7 +9,7 @@ interface SectionWrapProps {
 export const SectionWrap = styled('section')<SectionWrapProps>`
     display: flex;
     padding: 50px 15%;
-    background-image: url(http://localhost:1337${({bgImg})=> bgImg});
+    background-image: url(${process.env.NEXT_PUBLIC_STRAPI_URL}${({bgImg})=> bgImg});
     background-repeat: no-repeat;
     background-position: center;
      @media screen and (max-width: 1400px) {

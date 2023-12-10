@@ -18,7 +18,7 @@ export const FourthSection:FC = () => {
     const { local } = useContext(LocalContext)
 
     useEffect(() => {
-        axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/fourth-section/?populate=*&locale=${local}`).then((res: any) => {
+        axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/fourth-section/?populate=*&locale=${local}`).then((res: any) => {
             setData(res.data.data);
         })
     }, [local])
@@ -35,7 +35,7 @@ export const FourthSection:FC = () => {
                         <Typography variant="h4">{data?.attributes.quote}</Typography>
                     </S.FirstFloorLeft>
                     <S.FirstFloorRight>
-                        <S.Img img={`http://localhost:1337${data?.attributes.img.data.attributes.url}`} />
+                        <S.Img img={`${process.env.NEXT_PUBLIC_STRAPI_URL}${data?.attributes.img.data.attributes.url}`} />
                         <Typography variant="h5">Jach Dye CEO</Typography>
                         <Typography>{data?.attributes.imgDescription}</Typography>
                     </S.FirstFloorRight>
@@ -46,7 +46,7 @@ export const FourthSection:FC = () => {
                         <Typography variant="h5">{data?.attributes.subDescription}</Typography>
                     </S.SecondFloorLeft>
                     <S.oSecondFloorRight>
-                        <S.ImgBottom src={`http://localhost:1337${data?.attributes.subImg.data.attributes.url}`} />
+                        <S.ImgBottom src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${data?.attributes.subImg.data.attributes.url}`} />
                     </S.oSecondFloorRight>
                 </S.SecondFloor>
             </S.FourthSectionContent>

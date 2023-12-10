@@ -24,7 +24,7 @@ export const Card:FC<CardProps> = ({id, quote, description, goal, img, waterMark
     return (
         <S.Card justify={justify}>
             <S.ImgWrap>
-                <S.Img src={`http://localhost:1337${img}`}></S.Img>
+                <S.Img src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${img}`}></S.Img>
                 <Typography>{quote}</Typography>
                 <S.ImgFooter>
                     <S.Goal variant="h5">Goal 000{goal}</S.Goal>

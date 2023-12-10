@@ -27,7 +27,7 @@ export const Header:FC = () => {
     const {local, burger, setBurger} = useContext(LocalContext)
 
     useEffect(()=>{
-        axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/head/?populate=*&locale=${local}`).then((res:any) => {
+        axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/head/?populate=*&locale=${local}`).then((res:any) => {
             
             setData({
                 logo: res.data.data.attributes.logo.data.attributes.url,
@@ -41,7 +41,7 @@ export const Header:FC = () => {
     return (
         <S.Header id='header'>
             <S.LogoWrap>
-                <S.Logo src={`http://localhost:1337${data?.logo}`}></S.Logo>
+                <S.Logo src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${data?.logo}`}></S.Logo>
             </S.LogoWrap>
             <S.NavMenu>
                 {data?.items?.map((item)=>{

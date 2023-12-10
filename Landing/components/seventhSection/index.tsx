@@ -22,7 +22,7 @@ export const SeventhSection:FC = () => {
 
     const { local } = useContext(LocalContext)
     useEffect(() => {
-        axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/seventh-section?populate=*&locale=${local}`).then((res: any) => {
+        axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/seventh-section?populate=*&locale=${local}`).then((res: any) => {
             setData(res.data.data.attributes);
         })
     }, [local])

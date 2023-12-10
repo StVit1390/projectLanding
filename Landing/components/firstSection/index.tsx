@@ -9,6 +9,8 @@ import { LocalContext } from '../../app/page';
 
 // Styles
 import * as S from './styles';
+import { Button } from "@mui/material";
+
 
 
 export const FirstSection:FC = () => {
@@ -23,11 +25,11 @@ export const FirstSection:FC = () => {
     const { local } = useContext(LocalContext)
 
     useEffect(() => {
-        axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/first-section/?populate=*&locale=${local}`).then((res: any) => {
+        axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/first-section/?populate=*&locale=${local}`).then((res: any) => {
             
             setData({
-                bgImg: `http://localhost:1337${res.data.data.attributes.bgImg.data.attributes.url}`, 
-                img: `http://localhost:1337${res.data.data.attributes.img.data.attributes.url}`,
+                bgImg: `${process.env.NEXT_PUBLIC_STRAPI_URL}${res.data.data.attributes.bgImg.data.attributes.url}`, 
+                img: `${process.env.NEXT_PUBLIC_STRAPI_URL}${res.data.data.attributes.img.data?.attributes.url}`,
                 title: res.data.data.attributes.tittle,
                 description: res.data.data.attributes.description,
                 btnName: res.data.data.attributes.btnName,
@@ -37,13 +39,13 @@ export const FirstSection:FC = () => {
 
 
     return (
-        <S.SectionWrap bgImg={data.bgImg} img={data.img}>
+        <S.SectionWrap bgImg={data.bgImg} img={data?.img}>
             <S.LeftSide>
                 <S.BannerWrap>
                     <S.BannerContent>
                         <S.Tittle variant="h1">{data.title}</S.Tittle>
                         <S.Content variant="h4">{data.description}</S.Content>
-                        <S.Btn variant="contained" color="primary" size="large">{data.btnName}</S.Btn>
+                        <Button href='#eighthSection' variant="contained" color="primary" size="large">{data.btnName}</Button>
                     </S.BannerContent>
                 </S.BannerWrap>
             </S.LeftSide>

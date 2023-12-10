@@ -19,7 +19,7 @@ export const SixthSection:FC = () => {
     const { local } = useContext(LocalContext)
 
     useEffect(() => {
-        axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/sixth-section?populate=partners.icon&locale=${local}`).then((res: any) => {
+        axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/sixth-section?populate=partners.icon&locale=${local}`).then((res: any) => {
             
             setData(res.data.data.attributes);
         })
@@ -31,7 +31,7 @@ export const SixthSection:FC = () => {
             <S.PartnersWrap>
                 {
                     data?.partners.data.map((el: any) => {
-                        return <S.PartnerIcon key={el.id} src={`http://localhost:1337${el.attributes.icon.data.attributes.url}`}></S.PartnerIcon>
+                        return <S.PartnerIcon key={el.id} src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${el.attributes.icon.data.attributes.url}`}></S.PartnerIcon>
                     })
                 }
             </S.PartnersWrap>

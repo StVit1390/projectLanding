@@ -13,11 +13,15 @@ interface CardProps {
     icon: string,
 }
 
+
+
+
 export const Card: FC<CardProps> = ({tittle,description,icon}) => {
+    
     return (
         <S.Card>
             <S.IconWrap>
-                <S.Icon src={`http://localhost:1337${icon}`} />
+                <S.Icon src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${icon}`} />
             </S.IconWrap>
             <Typography variant="h4">{tittle}</Typography>
             <Typography variant="h5">{description}</Typography>

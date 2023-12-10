@@ -27,7 +27,7 @@ export const MobileMenu: FC = () => {
 
 
     useEffect(() => {
-        axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/head/?populate=*&locale=${local}`).then((res: any) => {
+        axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/head/?populate=*&locale=${local}`).then((res: any) => {
             setData({
                 items: res.data.data.attributes.menu_items.data,
                 support: res.data.data.attributes.support,

@@ -21,10 +21,12 @@ export const ThirdSection:FC = () => {
     const { local } = useContext(LocalContext)
 
     useEffect(() => {
-        axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/third-section/?populate=*&locale=${local}`).then((res: any) => {
+        axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/third-section/?populate=*&locale=${local}`).then((res: any) => {
             setData(res.data.data);
         })
     }, [local])
+
+    
 
     return (
         <S.SectionWrap  bgImg={data?.attributes.coverImage.data.attributes.url}>

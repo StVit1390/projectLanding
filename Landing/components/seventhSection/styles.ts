@@ -9,7 +9,7 @@ interface SectionWrapProps {
 export const SectionWrap = styled('section')<SectionWrapProps>`
     padding: 95px 15%;
     overflow: hidden;
-    background-image: url(http://localhost:1337${({bg})=>bg});
+    background-image: url(${process.env.NEXT_PUBLIC_STRAPI_URL}${({bg})=>bg});
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -19,7 +19,7 @@ export const SectionWrap = styled('section')<SectionWrapProps>`
         &::before {
             content: '';
             position: absolute;
-            background-image: url(http://localhost:1337${({ icon }) => icon}) ;
+            background-image: url(${process.env.NEXT_PUBLIC_STRAPI_URL}${({ icon }) => icon}) ;
             width: 450px;
             height: 450px;
             background-repeat: no-repeat;
@@ -118,7 +118,7 @@ export const Map = styled('div')`
 `
 
 export const MapDummy = styled('img')`
-
+    width: 100%;
 `
 
 export const MapHiden = styled('div')`  
