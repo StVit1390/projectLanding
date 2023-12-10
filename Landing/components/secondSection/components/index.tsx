@@ -5,10 +5,8 @@ import React, { FC } from "react";
 import * as S from './styles'
 
 // MUI
-import { Button, Typography} from "@mui/material";
+import {Typography} from "@mui/material";
 
-// Elements
-import {Btn} from '../../../elements/button'
 
 interface CardProps {
     id: number,

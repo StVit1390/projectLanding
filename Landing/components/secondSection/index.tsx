@@ -15,8 +15,7 @@ import { LocalContext } from '../../app/page'
 
 export const SecondSection:FC = () => {
    
-    const [data, setData] = useState()
-
+    const [data, setData] = useState<any>()
     const { local } = useContext(LocalContext)
 
     useEffect(() => {
@@ -27,9 +26,9 @@ export const SecondSection:FC = () => {
     
     return (
         <S.SecondSectionWrap id="secondSection">
-            <S.Tittle variant='h2'>{data && data.tittle}</S.Tittle>
+            <S.Tittle variant='h2'>{data?.tittle}</S.Tittle>
             <S.Cards>
-                {data && data.projects.data.map((el: any, i:number) => {
+                {data?.projects?.data.map((el: any, i:number) => {
                     if (i % 2 === 0){
                         return <Card
                             justify={false}

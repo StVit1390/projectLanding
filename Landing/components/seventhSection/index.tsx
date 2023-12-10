@@ -28,10 +28,10 @@ export const SeventhSection:FC = () => {
     }, [local])
 
     return (
-        <S.SectionWrap id="seventhSection" bg={data && data.background.data.attributes.url} icon={data && data.logo.data.attributes.url}>
+        <S.SectionWrap id="seventhSection" bg={data?.background.data.attributes.url} icon={data?.logo.data.attributes.url}>
             <S.Contacts>
-                <Typography variant="h2">{data && data.tittle}</Typography>
-                {data && data.phones.data.map((el:any)=>{
+                <Typography variant="h2">{data?.tittle}</Typography>
+                {data?.phones.data.map((el:any)=>{
                     return (
                         <S.PhoneWrap key={el.id}>
                             <Typography variant="h5"  key={el.id}>+{el.attributes.phone.toString().replace(/(\d{2})(\d{3})(\d{3})(\d{3})/, "$1 $2 $3 $4")}</Typography>
@@ -39,7 +39,7 @@ export const SeventhSection:FC = () => {
                     )
                 })}
                 <S.EmailWrap>
-                    <Typography variant="h5">{data && data.email.data.attributes.email}</Typography>
+                    <Typography variant="h5">{data?.email.data.attributes.email}</Typography>
                 </S.EmailWrap>
                 <S.MapHiden>
                     <S.MapDummyHiden src="./map.svg" />
@@ -52,7 +52,7 @@ export const SeventhSection:FC = () => {
                 <S.BannerBanksWrap>
                     <Typography variant="h4">Bank details:</Typography>
                     <S.Fields>
-                        {data && data.bank_accounts.data.map((el: any) => {
+                        {data?.bank_accounts.data.map((el: any) => {
                             return <AccountField key={el.id} name={el.attributes.name} acc={el.attributes.address} />
                         })}
                     </S.Fields>

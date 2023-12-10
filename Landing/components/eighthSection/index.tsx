@@ -38,12 +38,12 @@ export const EighthSection:FC = () => {
     
     return (
         <S.SectionWrap id="eighthSection">
-            <S.Tittle variant="h2">{data && data.tittle}</S.Tittle>
+            <S.Tittle variant="h2">{data?.tittle}</S.Tittle>
             <S.FormWrap>
-                <S.FormTittle variant="h3">{data && data.subTittle}</S.FormTittle>
+                <S.FormTittle variant="h3">{data?.subTittle}</S.FormTittle>
                 <S.FormContent>
                     <S.Label>
-                        <Typography variant="body2">{data && data.name}:</Typography>
+                        <Typography variant="body2">{data?.name}:</Typography>
                             <S.CustomField
                                 sx={{height:'75px'}}
                                 id="outlined-basic"
@@ -57,14 +57,14 @@ export const EighthSection:FC = () => {
                                     }
                                 }}
                                 fullWidth
-                                placeholder={data && data.namePlaceholder}
+                                placeholder={data?.namePlaceholder}
                                 rows='3'
                                 variant="outlined" 
                                 />
                         {err && !validForm.name && <S.Err>Your name must contain at least two characters</S.Err>}
                     </S.Label>
                     <S.Label>
-                        <Typography variant="body2">{data && data.phone}:</Typography>
+                        <Typography variant="body2">{data?.phone}:</Typography>
                             <S.CustomField
                                 sx={{ height: '75px' }}
                                 id="outlined-basic"
@@ -79,12 +79,12 @@ export const EighthSection:FC = () => {
                                 }}
                                 inputMode="numeric"
                                 fullWidth
-                                placeholder={data && data.phonePlaceholder} 
+                                placeholder={data?.phonePlaceholder} 
                                 variant="outlined" />
                         {err && !validForm.phone &&<S.Err>Enter please your valid phone number</S.Err>}
                     </S.Label>
                     <S.Label>
-                        <Typography variant="body2">{data && data.email}:</Typography>
+                        <Typography variant="body2">{data?.email}:</Typography>
                             <S.CustomField
                                 sx={{ height: '75px' }}
                                 id="outlined-basic"
@@ -99,12 +99,12 @@ export const EighthSection:FC = () => {
                                     }
                                 }
                                 fullWidth
-                                placeholder={data && data.emailPlaceholder} 
+                                placeholder={data?.emailPlaceholder} 
                                 variant="outlined" />
                         {err && !validForm.email &&<S.Err>Please enter the correct email</S.Err>}
                     </S.Label>
                     <S.Label>
-                        <Typography variant="body2">{data && data.question}:</Typography>
+                        <Typography variant="body2">{data?.question}:</Typography>
                             <S.CustomField
                                 value={formValues.message}
                                 onChange={(e) => {
@@ -118,7 +118,7 @@ export const EighthSection:FC = () => {
                                 multiline
                                 fullWidth
                                 id="outlined-basic"
-                                placeholder={data && data.questionPlaceholder}
+                                placeholder={data?.questionPlaceholder}
                                 variant="outlined"
                                 minRows={6}/>
                         {err && !validForm.message &&<S.Err>Your message must contain at least 10 characters</S.Err>}
@@ -140,7 +140,7 @@ export const EighthSection:FC = () => {
                         setFormValues(init)
                         setErr(false)
                     }
-                }}>{data && data.btn}</Button>
+                }}>{data?.btn}</Button>
             </S.FormWrap>
         </S.SectionWrap>
     )

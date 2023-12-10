@@ -8,10 +8,7 @@ import axios from "axios";
 import { LocalContext } from '../../app/page';
 
 // Styles
-import * as S from './styles'
-
-// MUI
-import { Button } from "@mui/material";
+import * as S from './styles';
 
 
 export const FirstSection:FC = () => {

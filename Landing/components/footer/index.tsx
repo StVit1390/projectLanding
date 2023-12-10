@@ -27,10 +27,10 @@ export const Footer:FC = () => {
     }, [local])
 
     return (
-        <S.SectionWrap bgImg={data && data.background.data.attributes.url}>
-            <S.Logo src={`http://localhost:1337${data && data.logo.data.attributes.url}`}></S.Logo>
+        <S.SectionWrap bgImg={data?.background.data.attributes.url}>
+            <S.Logo src={`http://localhost:1337${data?.logo.data.attributes.url}`}></S.Logo>
             <S.Nav>
-                {data && data.menu_items.data.map((el:any)=>{
+                {data?.menu_items.data.map((el:any)=>{
                     return (
                         <S.Btn key={el.id} href={`#${el.attributes.link}`}>
                             <Typography variant="h5">{el.attributes.item}</Typography>
@@ -40,8 +40,8 @@ export const Footer:FC = () => {
                
             </S.Nav>
             <S.Contacts>
-                <Typography variant="h5">{data && data.contacts_tittle}:</Typography>
-                {data && data.phones.data.map((el:any)=>{
+                <Typography variant="h5">{data?.contacts_tittle}:</Typography>
+                {data?.phones.data.map((el:any)=>{
                     return(
                         <S.Contact key={el.id}>
                             <Typography variant="h5">+ {el.attributes.phone.toString().replace(/(\d{2})(\d{3})(\d{3})(\d{3})/, "$1 $2 $3 $4")}</Typography>
@@ -49,11 +49,11 @@ export const Footer:FC = () => {
                     )
                 })}
                 <S.Email>
-                    <Typography variant="h5">{data && data.email.data.attributes.email}</Typography>
+                    <Typography variant="h5">{data?.email.data.attributes.email}</Typography>
                 </S.Email>
             </S.Contacts>
             <S.SocialMedia>
-                <Typography variant="h5">{data && data.social_tittle}:</Typography>
+                <Typography variant="h5">{data?.social_tittle}:</Typography>
                 <S.Links>
                     <S.Link href="#">
                         <S.SocialIcon src="/fb.svg"/>

@@ -26,27 +26,27 @@ export const FourthSection:FC = () => {
 
     return (
         <S.FourthSectionWrap id="fourthSection">
-            <Typography variant="h2">{data && data.attributes.name}</Typography>
+            <Typography variant="h2">{data?.attributes.name}</Typography>
             <S.FourthSectionContent>
                 <S.FirstFloor>
                     <S.FirstFloorLeft>
-                        <Typography variant="h3">{data && data.attributes.tittle}</Typography>
-                        <Typography variant="h5">{data && data.attributes.description}</Typography>
-                        <Typography variant="h4">{data && data.attributes.quote}</Typography>
+                        <Typography variant="h3">{data?.attributes.tittle}</Typography>
+                        <Typography variant="h5">{data?.attributes.description}</Typography>
+                        <Typography variant="h4">{data?.attributes.quote}</Typography>
                     </S.FirstFloorLeft>
                     <S.FirstFloorRight>
-                        <S.Img img={`http://localhost:1337${data && data.attributes.img.data.attributes.url}`} />
+                        <S.Img img={`http://localhost:1337${data?.attributes.img.data.attributes.url}`} />
                         <Typography variant="h5">Jach Dye CEO</Typography>
-                        <Typography>{data && data.attributes.imgDescription}</Typography>
+                        <Typography>{data?.attributes.imgDescription}</Typography>
                     </S.FirstFloorRight>
                 </S.FirstFloor>
                 <S.SecondFloor>
                     <S.SecondFloorLeft>
-                        <Typography variant="h3">{data && data.attributes.subTittle}</Typography>
-                        <Typography variant="h5">{data && data.attributes.subDescription}</Typography>
+                        <Typography variant="h3">{data?.attributes.subTittle}</Typography>
+                        <Typography variant="h5">{data?.attributes.subDescription}</Typography>
                     </S.SecondFloorLeft>
                     <S.oSecondFloorRight>
-                        <S.ImgBottom src={`http://localhost:1337${data && data.attributes.subImg.data.attributes.url}`} />
+                        <S.ImgBottom src={`http://localhost:1337${data?.attributes.subImg.data.attributes.url}`} />
                     </S.oSecondFloorRight>
                 </S.SecondFloor>
             </S.FourthSectionContent>

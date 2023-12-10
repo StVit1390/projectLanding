@@ -1,6 +1,6 @@
 'use client'
 // Core
-import React, { useEffect, useState, useContext, createContext } from 'react';
+import React, { useEffect, useState, createContext, useMemo } from 'react';
 
 // Styles
 import * as S from './styles';
@@ -36,6 +36,8 @@ export const LocalContext = createContext<{
     setBurger: () => {},
   })
 
+  
+
 
 export default function Home() {
     const [mounted, setMounted] = useState(false)
@@ -44,13 +46,9 @@ export default function Home() {
     const [local, setLocal] = useState('en')
     const [burger, setBurger] = useState(false)
 
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-
   useEffect(() => {
     const handleResize = () => {
-      const newWidth = window.innerWidth;
-      if (newWidth >= 650) setBurger(false)
-      setScreenWidth(newWidth);
+      if (window.innerWidth >= 650) setBurger(false)
     };
 
     window.addEventListener('resize', handleResize);
@@ -60,9 +58,19 @@ export default function Home() {
     };
   }, []);
     
-
+  const contextValue = useMemo(
+    () => ({
+      local,
+      setLocal,
+      burger,
+      setBurger,
+    }),
+    [local, setLocal, burger, setBurger]
+  );
+  
   return (
-    <LocalContext.Provider value={{local, setLocal, burger, setBurger}}>
+    
+    <LocalContext.Provider value={contextValue}>
       <ThemeProvider theme={mainTheme}>
           <CssBaseline />
           <S.Wrap style={{ visibility: mounted ? 'visible' : 'hidden' }}>

@@ -27,10 +27,10 @@ export const SixthSection:FC = () => {
 
     return (
         <S.SectionWrap id="sixthSection">
-            <Typography variant="h2">{data && data.name}</Typography>
+            <Typography variant="h2">{data?.name}</Typography>
             <S.PartnersWrap>
                 {
-                    data && data.partners.data.map((el: any) => {
+                    data?.partners.data.map((el: any) => {
                         return <S.PartnerIcon key={el.id} src={`http://localhost:1337${el.attributes.icon.data.attributes.url}`}></S.PartnerIcon>
                     })
                 }

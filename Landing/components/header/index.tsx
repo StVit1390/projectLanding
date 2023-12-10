@@ -41,10 +41,10 @@ export const Header:FC = () => {
     return (
         <S.Header id='header'>
             <S.LogoWrap>
-                <S.Logo src={`http://localhost:1337${data && data.logo && data.logo}`}></S.Logo>
+                <S.Logo src={`http://localhost:1337${data?.logo}`}></S.Logo>
             </S.LogoWrap>
             <S.NavMenu>
-                {data && data.items && data.items.map((item)=>{
+                {data?.items?.map((item)=>{
                     return <S.Btn key={item.id} href={`#${item.attributes.link}`}>{item.attributes.item}</S.Btn>
                 })}
             </S.NavMenu>

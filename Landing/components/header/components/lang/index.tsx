@@ -1,5 +1,5 @@
 // Core
-import React, {FC, useContext, useState} from "react";
+import React, {FC, useContext} from "react";
 
 // Style
 import * as S from './style'

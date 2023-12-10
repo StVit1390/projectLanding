@@ -26,12 +26,12 @@ export const FifthSection:FC = () => {
 
     return (
         <S.SectionWrap>
-            <S.Tittle variant="h2">{data && data.attributes.name}</S.Tittle>
-            <S.Quote variant="h5">{data && data.attributes.quote}</S.Quote>
-            <S.Quote variant="h5">{data && data.attributes.quote2}</S.Quote>
+            <S.Tittle variant="h2">{data?.attributes.name}</S.Tittle>
+            <S.Quote variant="h5">{data?.attributes.quote}</S.Quote>
+            <S.Quote variant="h5">{data?.attributes.quote2}</S.Quote>
             <S.Cards>
                 {
-                    data && data.attributes.cards.data.map((el:any)=>{
+                    data?.attributes.cards.data.map((el:any)=>{
                         
                         return (
                             <Card 
