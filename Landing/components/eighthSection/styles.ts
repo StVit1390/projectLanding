@@ -61,13 +61,11 @@ export const Label = styled('label')`
 export const InputWrap = styled('div')`
     display: flex;
     flex-direction: column;
-    
 `
 
 export const CustomField = styled(TextField)`
     background-color: ${({theme})=> theme.palette.background.default} ;
     border-radius: 13px;
-    
     
     & div {
         -webkit-box-shadow: 0px 10px 15px -4px rgba(0,0,0,0.1);
