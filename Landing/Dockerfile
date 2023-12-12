@@ -14,5 +14,8 @@ RUN npm config set fetch-retry-maxtimeout 600000 -g && npm install
 
 COPY . .
 
-EXPOSE 1337
-CMD ["npm", "run", "dev"]
+# Run npm build
+RUN npm run build
+
+EXPOSE 3001
+CMD ["npm", "run", "start"]

@@ -1,13 +1,18 @@
 version: '3'
+
 services:
-  # db:
-  #   image: postgres:13.0
-  #   ports:
-  #     - "5432:5432"
-  #   environment:
-  #     - POSTGRES_USER=postgres
-  #     - POSTGRES_PASSWORD=qwerty123
-  #     - POSTGRES_DB=test
+  db:
+    image: postgres:13.0
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=test
+    command: ["postgres", "-c", "listen_addresses=0.0.0.0"]
+    volumes:
+      - .\dump.sql:/docker-entrypoint-initdb.d/10-dump.sql
+    restart: always  # This ensures the container restarts and re-runs the init scripts on restart
 
   strapi:
     build:
@@ -16,10 +21,9 @@ services:
     env_file:
      - ./Strapi/.env
     ports:
-      - "1337:1337"
+      - "3001:3001"
     depends_on:
       - db
-
 
   landing:
     build:
@@ -30,6 +34,3 @@ services:
       - "3000:3000"
     depends_on:
       - strapi
-
-# volumes:
-#   postgres_data:

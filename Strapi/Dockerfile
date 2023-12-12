@@ -12,8 +12,8 @@ WORKDIR /opt/app
 # Copy files to container
 COPY . .
 
-RUN npm install 
+RUN yarn  
 
-EXPOSE 1337
+EXPOSE 3001
 
-CMD ["npm", "run", "develop"]
+CMD ["yarn", "run", "develop"]
