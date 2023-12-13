@@ -1,6 +1,6 @@
 // MUI
 import { TextField, Typography } from '@mui/material'
-import { styled } from '@mui/system'
+import { styled, keyframes } from '@mui/system'
 
 export const SectionWrap = styled('div')`
     padding: 100px 15%;
@@ -64,10 +64,20 @@ export const InputWrap = styled('div')`
     
 `
 
+const fadeIn = keyframes`
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
+
+
 export const CustomField = styled(TextField)`
     background-color: ${({theme})=> theme.palette.background.default} ;
     border-radius: 13px;
-    
+    opacity: 0.5;
     
     & div {
         -webkit-box-shadow: 0px 10px 15px -4px rgba(0,0,0,0.1);
@@ -91,6 +101,9 @@ export const CustomField = styled(TextField)`
     & input {
         height: 45px;
     }
+    &:hover, &:focus-within {
+    animation: ${fadeIn} 1s ease-in-out forwards;
+  }
 `
 
 export const Tittle = styled(Typography)`
