@@ -1,7 +1,15 @@
+import React, {FC, ReactNode} from 'react';
+
+// Tools
 import { useSpring, animated, config } from 'react-spring';
 import { useInView } from 'react-intersection-observer';
 
-export const FadeInSection = ({ children }) => {
+
+interface FadeInSectionProps {
+    children: ReactNode;
+}
+
+export const FadeInSection: FC<FadeInSectionProps> = ({ children }) => {
     const [ref, inView] = useInView({
         triggerOnce: true,
     });
