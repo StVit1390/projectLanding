@@ -35,7 +35,7 @@ export const FourthSection:FC = () => {
                         <Typography variant="h4">{data?.attributes.quote}</Typography>
                     </S.FirstFloorLeft>
                     <S.FirstFloorRight>
-                        <S.Img img={`${process.env.NEXT_PUBLIC_STRAPI_URL}${data?.attributes.img.data.attributes.url}`} />
+                        <S.Img img={`${process.env.NEXT_PUBLIC_STRAPI_URL}${data?.attributes.img?.data?.attributes.url}`} />
                         <Typography variant="h5">Jach Dye CEO</Typography>
                         <Typography>{data?.attributes.imgDescription}</Typography>
                     </S.FirstFloorRight>
@@ -46,7 +46,7 @@ export const FourthSection:FC = () => {
                         <Typography variant="h5">{data?.attributes.subDescription}</Typography>
                     </S.SecondFloorLeft>
                     <S.oSecondFloorRight>
-                        <S.ImgBottom src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${data?.attributes.subImg.data.attributes.url}`} />
+                        <S.ImgBottom src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${data?.attributes.subImg?.data?.attributes.url}`} />
                     </S.oSecondFloorRight>
                 </S.SecondFloor>
             </S.FourthSectionContent>

@@ -5,6 +5,9 @@ import React, { useEffect, useState, createContext, useMemo } from 'react';
 // Styles
 import * as S from './styles';
 
+// Tools
+import {FadeInSection} from '../elements/fadeSection/'
+
 // View
 import { Header } from '../components/header';
 import { FirstSection } from '../components/firstSection';
@@ -77,14 +80,14 @@ export default function Home() {
             <Header />
             {burger && <MobileMenu />}
             {!burger && <>
-              <FirstSection />
-              <SecondSection />
-              <ThirdSection />
-              <FourthSection />
-              <FifthSection />
-              <SixthSection />
-              <SeventhSection />
-              <EighthSection />
+              <FadeInSection><FirstSection /></FadeInSection>
+              <FadeInSection><SecondSection /></FadeInSection>
+              <FadeInSection><ThirdSection /></FadeInSection>
+              <FadeInSection><FourthSection /></FadeInSection>
+              <FadeInSection><FifthSection /></FadeInSection>
+              <FadeInSection><SixthSection /></FadeInSection>
+              <FadeInSection><SeventhSection /></FadeInSection>
+              <FadeInSection><EighthSection /></FadeInSection>
               <Footer />
             </>}
           </S.Wrap>

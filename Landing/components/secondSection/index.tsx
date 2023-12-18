@@ -37,8 +37,8 @@ export const SecondSection:FC = () => {
                             quote={el.attributes.quote}
                             description={el.attributes.description}
                             goal={el.attributes.goal}
-                            img={el.attributes.img.data.attributes.url}
-                            waterMark={el.attributes.waterMark.data.attributes.url} 
+                            img={el.attributes?.img?.data.attributes.url}
+                            waterMark={el.attributes.waterMark?.data?.attributes.url} 
                             btn={el.attributes.btn}/>
                     }else{
                         return <Card
@@ -48,8 +48,8 @@ export const SecondSection:FC = () => {
                             quote={el.attributes.quote}
                             description={el.attributes.description}
                             goal={el.attributes.goal}
-                            img={el.attributes.img.data.attributes.url}
-                            waterMark={el.attributes.waterMark.data.attributes.url}
+                            img={el.attributes?.img?.data.attributes.url}
+                            waterMark={el.attributes.waterMark?.data?.attributes.url}
                             btn={el.attributes.btn} />
                     }
                     

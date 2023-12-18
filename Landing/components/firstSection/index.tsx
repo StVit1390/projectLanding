@@ -39,7 +39,7 @@ export const FirstSection:FC = () => {
 
 
     return (
-        <S.SectionWrap bgImg={data.bgImg} img={data?.img}>
+        <S.SectionWrap bgImg={data?.bgImg} img={data?.img}>
             <S.LeftSide>
                 <S.BannerWrap>
                     <S.BannerContent>

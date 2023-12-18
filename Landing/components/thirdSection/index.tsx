@@ -29,7 +29,7 @@ export const ThirdSection:FC = () => {
     
 
     return (
-        <S.SectionWrap  bgImg={data?.attributes.coverImage.data.attributes.url}>
+        <S.SectionWrap  bgImg={data?.attributes.coverImage?.data.attributes.url}>
             <S.BannerInfo>
                 <S.BannerInfoWrap>
                     <S.Tittle variant="h1">{data?.attributes.tittle}</S.Tittle>

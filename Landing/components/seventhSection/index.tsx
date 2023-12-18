@@ -28,7 +28,7 @@ export const SeventhSection:FC = () => {
     }, [local])
 
     return (
-        <S.SectionWrap id="seventhSection" bg={data?.background.data.attributes.url} icon={data?.logo.data.attributes.url}>
+        <S.SectionWrap id="seventhSection" bg={data?.background.data?.attributes.url} icon={data?.logo.data?.attributes.url}>
             <S.Contacts>
                 <Typography variant="h2">{data?.tittle}</Typography>
                 {data?.phones.data.map((el:any)=>{
