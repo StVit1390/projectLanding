@@ -68,6 +68,7 @@ export const EighthSection: FC = () => {
                             <S.Label>
                                 <Typography variant="body2">{data?.phone}:</Typography>
                                 <S.CustomField
+                                    autoComplete=""
                                     sx={{ height: '75px' }}
                                     id="outlined-basic"
                                     value={formValues.phone}

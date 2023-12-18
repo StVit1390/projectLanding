@@ -3,6 +3,7 @@ import React, { FC, useState, useEffect, useContext } from "react";
 
 //Tools
 import axios from "axios";
+import {TextCutter} from '../../elements/textCutter'
 
 // Styles
 import * as S from './styles'
@@ -31,7 +32,9 @@ export const FourthSection:FC = () => {
                 <S.FirstFloor>
                     <S.FirstFloorLeft>
                         <Typography variant="h3">{data?.attributes.tittle}</Typography>
-                        <Typography variant="h5">{data?.attributes.description}</Typography>
+                        <Typography variant="h5">
+                            <TextCutter>{data?.attributes.description}</TextCutter>
+                        </Typography>
                         <Typography variant="h4">{data?.attributes.quote}</Typography>
                     </S.FirstFloorLeft>
                     <S.FirstFloorRight>
@@ -43,7 +46,9 @@ export const FourthSection:FC = () => {
                 <S.SecondFloor>
                     <S.SecondFloorLeft>
                         <Typography variant="h3">{data?.attributes.subTittle}</Typography>
-                        <Typography variant="h5">{data?.attributes.subDescription}</Typography>
+                        <Typography variant="h5">
+                            <TextCutter>{data?.attributes.subDescription}</TextCutter>
+                        </Typography>
                     </S.SecondFloorLeft>
                     <S.oSecondFloorRight>
                         <S.ImgBottom src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${data?.attributes.subImg.data.attributes.url}`} />
