@@ -1,9 +1,6 @@
-import React, {FC, ReactNode} from 'react';
-
-// Tools
-import { useSpring, animated, config } from 'react-spring';
+import React, { FC, ReactNode, useState } from 'react';
+import { useSpring, animated } from 'react-spring';
 import { useInView } from 'react-intersection-observer';
-
 
 interface FadeInSectionProps {
     children: ReactNode;
@@ -14,11 +11,20 @@ export const FadeInSection: FC<FadeInSectionProps> = ({ children }) => {
         triggerOnce: true,
     });
 
+    const [isVisible, setIsVisible] = useState(false);
+
     const props = useSpring({
-        opacity: inView ? 1 : 0,
-        from: { opacity: 0 },
-        config: { duration: 1000 }, // Продолжительность анимации в миллисекундах
+        opacity: isVisible ? 1 : 0,
+        config: { duration: 500 },
     });
 
-    return <animated.div ref={ref} style={props}>{children}</animated.div>;
+    if (inView && !isVisible) {
+        setIsVisible(true);
+    }
+
+    return (
+        <div ref={ref}>
+            <animated.div style={props}>{children}</animated.div>
+        </div>
+    );
 };
