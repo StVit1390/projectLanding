@@ -16,6 +16,7 @@ import { SixthSection } from '../components/sixthSection';
 import { SeventhSection } from '../components/seventhSection';
 import { EighthSection } from '../components/eighthSection'
 import { Footer } from '../components/footer'
+import { PopUp } from '../elements/popUp/indext';
 
 // MUI
 import { CssBaseline, ThemeProvider } from '@mui/material';
@@ -28,12 +29,16 @@ export const LocalContext = createContext<{
   local: string,
   setLocal: React.Dispatch<React.SetStateAction<string>>
   burger: boolean,
-  setBurger: React.Dispatch<React.SetStateAction<boolean>>
+  setBurger: React.Dispatch<React.SetStateAction<boolean>>,
+  popUpIsVisible: boolean,
+  setPopUpIsVisible: React.Dispatch<React.SetStateAction<boolean>>
 }>({ 
     local: 'en',
     setLocal: () => {},
     burger: false,
     setBurger: () => {},
+    popUpIsVisible: false,
+    setPopUpIsVisible: () => {},
   })
 
   
@@ -45,6 +50,7 @@ export default function Home() {
 
     const [local, setLocal] = useState('en')
     const [burger, setBurger] = useState(false)
+    const [popUpIsVisible, setPopUpIsVisible] = useState(false)
 
   useEffect(() => {
     const handleResize = () => {
@@ -64,9 +70,24 @@ export default function Home() {
       setLocal,
       burger,
       setBurger,
+      popUpIsVisible,
+      setPopUpIsVisible,
     }),
-    [local, setLocal, burger, setBurger]
+    [ 
+      local,
+      setLocal,
+      burger,
+      setBurger,
+      popUpIsVisible,
+      setPopUpIsVisible]
   );
+
+  useEffect(() => {
+    popUpIsVisible ? 
+      document.body.style.overflow = 'hidden'
+      :
+      document.body.style.overflow = 'auto';
+  }, [popUpIsVisible]);
   
   return (
     
@@ -87,6 +108,13 @@ export default function Home() {
               <EighthSection />
               <Footer />
             </>}
+            {popUpIsVisible && 
+              <S.NoScroll>
+                <PopUp>
+                  
+                </PopUp>
+              </S.NoScroll>
+            }
           </S.Wrap>
       </ThemeProvider> 
     </LocalContext.Provider>
