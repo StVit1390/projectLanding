@@ -39,7 +39,16 @@ export const LocalContext = createContext<{
     setBurger: () => {},
   })
 
-  
+const sections = [
+  <FirstSection key='0'/>,
+  <SecondSection key='1'/>,
+  <ThirdSection key='2'/>,
+  <FourthSection key='3'/>,
+  <FifthSection key='4'/>,
+  <SixthSection key='5'/>,
+  <SeventhSection key='6'/>,
+  <EighthSection key='7'/>
+] 
 
 
 export default function Home() {
@@ -80,15 +89,12 @@ export default function Home() {
             <Header />
             {burger && <MobileMenu />}
             {!burger && <>
-              <FadeInSection><FirstSection /></FadeInSection>
-              <FadeInSection><SecondSection /></FadeInSection>
-              <FadeInSection><ThirdSection /></FadeInSection>
-              <FadeInSection><FourthSection /></FadeInSection>
-              <FadeInSection><FifthSection /></FadeInSection>
-              <FadeInSection><SixthSection /></FadeInSection>
-              <FadeInSection><SeventhSection /></FadeInSection>
-              <FadeInSection><EighthSection /></FadeInSection>
-              <Footer />
+              {sections.map((section, i)=>{
+                return (
+                  <FadeInSection key={i}>{section}</FadeInSection>
+                )
+              })}
+              <Footer/>
             </>}
           </S.Wrap>
       </ThemeProvider> 

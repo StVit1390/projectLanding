@@ -76,10 +76,7 @@ const fadeIn = keyframes`
 export const CustomField = styled(TextField)`
     background-color: ${({theme})=> theme.palette.background.default} ;
     border-radius: 13px;
-<<<<<<< HEAD
     opacity: 0.5;
-=======
->>>>>>> text
     
     & div {
         -webkit-box-shadow: 0px 10px 15px -4px rgba(0,0,0,0.1);

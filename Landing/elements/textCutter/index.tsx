@@ -23,18 +23,25 @@ export const TextCutter:FC<TextCutterT>= ({children}) => {
     }, [children])
 
     const { local } = useContext(LocalContext)
+   
     
     const ButtonLocale = () => {
         let btnName 
+        enum Locale {
+            en = "read more",
+            pl = "czytaj więcej",
+            uk = "читати далi"
+        } 
+
 
         switch(local){
-            case 'en': btnName = "read more";
+            case 'en': btnName = Locale.en;
             break;
-            case 'pl': btnName = 'czytaj więcej';
+            case 'pl': btnName = Locale.pl;
             break;
-            case 'uk': btnName = 'читати далi'
+            case 'uk': btnName = Locale.uk
             break;
-            default: btnName = "read more"
+            default: btnName = Locale.en
 
         }
        
