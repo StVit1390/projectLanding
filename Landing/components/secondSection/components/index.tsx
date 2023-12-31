@@ -1,11 +1,14 @@
 // Core
-import React, { FC } from "react";
+import React, { FC, useContext } from "react";
 
 // Styles 
 import * as S from './styles'
 
 // MUI
 import {Typography} from "@mui/material";
+
+// Context
+import { LocalContext } from "../../../app/page";
 
 
 interface CardProps {
@@ -20,7 +23,7 @@ interface CardProps {
 }
 
 export const Card:FC<CardProps> = ({id, quote, description, goal, img, waterMark, justify, btn}) => {
-    
+    const { setPopUpIsVisible } = useContext(LocalContext)
     return (
         <S.Card justify={justify}>
             <S.ImgWrap>
@@ -28,7 +31,7 @@ export const Card:FC<CardProps> = ({id, quote, description, goal, img, waterMark
                 <Typography>{quote}</Typography>
                 <S.ImgFooter>
                     <S.Goal variant="h5">Goal 000{goal}</S.Goal>
-                    <S.DonateBtn variant='contained' color='primary' size="medium">{btn}</S.DonateBtn>
+                    <S.DonateBtn variant='contained' color='primary' size="medium" onClick={()=> setPopUpIsVisible(true) }>{btn}</S.DonateBtn>
                 </S.ImgFooter>
             </S.ImgWrap>
             <S.Content waterMark={waterMark} justify={justify}>
