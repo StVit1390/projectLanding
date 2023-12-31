@@ -5,6 +5,9 @@ import React, { useEffect, useState, createContext, useMemo } from 'react';
 // Styles
 import * as S from './styles';
 
+// Tools
+import {FadeInSection} from '../elements/fadeSection/'
+
 // View
 import { Header } from '../components/header';
 import { FirstSection } from '../components/firstSection';
@@ -36,7 +39,16 @@ export const LocalContext = createContext<{
     setBurger: () => {},
   })
 
-  
+const sections = [
+  <FirstSection key='0'/>,
+  <SecondSection key='1'/>,
+  <ThirdSection key='2'/>,
+  <FourthSection key='3'/>,
+  <FifthSection key='4'/>,
+  <SixthSection key='5'/>,
+  <SeventhSection key='6'/>,
+  <EighthSection key='7'/>
+] 
 
 
 export default function Home() {
@@ -77,15 +89,12 @@ export default function Home() {
             <Header />
             {burger && <MobileMenu />}
             {!burger && <>
-              <FirstSection />
-              <SecondSection />
-              <ThirdSection />
-              <FourthSection />
-              <FifthSection />
-              <SixthSection />
-              <SeventhSection />
-              <EighthSection />
-              <Footer />
+              {sections.map((section, i)=>{
+                return (
+                  <FadeInSection key={i}>{section}</FadeInSection>
+                )
+              })}
+              <Footer/>
             </>}
           </S.Wrap>
       </ThemeProvider> 

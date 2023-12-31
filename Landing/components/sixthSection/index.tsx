@@ -31,7 +31,7 @@ export const SixthSection:FC = () => {
             <S.PartnersWrap>
                 {
                     data?.partners.data.map((el: any) => {
-                        return <S.PartnerIcon key={el.id} src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${el.attributes.icon.data.attributes.url}`}></S.PartnerIcon>
+                        return <S.PartnerIcon key={el.id} src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${el.attributes?.icon.data?.attributes.url}`}></S.PartnerIcon>
                     })
                 }
             </S.PartnersWrap>

@@ -38,7 +38,7 @@ export const FifthSection:FC = () => {
                                 key={el.id} 
                                 tittle={el.attributes.tittle}
                                 description={el.attributes.description}
-                                icon={el.attributes.icon.data.attributes.url}
+                                icon={el.attributes?.icon.data?.attributes.url}
                             />
                         )
                     })  
