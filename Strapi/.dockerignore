@@ -6,3 +6,4 @@ README.md
 .next
 docker
 .git
+package-lock.json
