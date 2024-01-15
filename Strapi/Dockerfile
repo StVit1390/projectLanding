@@ -1,19 +1,26 @@
 # Use container with pre-installed nodejs
-FROM node:18-alpine
+FROM node:18
 
-# Installing libvips-dev for sharp Compatibility
-RUN apk update && apk add --no-cache build-base gcc autoconf automake zlib-dev libpng-dev nasm bash vips-dev git
-ARG NODE_ENV=development
-ENV NODE_ENV=${NODE_ENV}
-
-# Create dir for node_modules
+# Set default dir
 WORKDIR /opt/app
 
-# Copy files to container
+# Copy all files 
 COPY . .
 
-RUN yarn  
+# Install required packages
+RUN apt-get update && \
+    apt-get install -y \
+      build-essential \
+      zlib1g-dev \
+      libpng-dev \
+      nasm \
+      git \
+      libvips-dev && \
+    yarn install && \
+    apt-get remove -y build-essential && \
+    apt-get autoremove -y && \
+    rm -rf /var/lib/apt/lists/*
 
-EXPOSE 3001
+EXPOSE 1337
 
 CMD ["yarn", "run", "develop"]
