@@ -45,13 +45,19 @@ export const Logo  = styled('img')`
     width: 200px;
     @media screen and (max-width: 1100px) {
        top: 0;
+       width: 160px;
+       height: 90px;
+    }
+
+    @media screen and (max-width: 650px) {
+       height: 80px;
     }
 `
 
 export const NavMenu = styled('div')`
     display: flex;
     align-items: center;
-    @media screen and (max-width: 650px) {
+    @media screen and (max-width: 725px) {
        display: none;
     }
 `
@@ -88,7 +94,7 @@ export const Btn = styled('a')`
 export const SupportUsWrap = styled('div')`
     display: flex;
     align-items: center;
-    @media screen and (max-width: 650px) {
+    @media screen and (max-width: 725px) {
        display: none;
     }
 `
@@ -109,7 +115,7 @@ export const BurgerWrap = styled(Box)`
     padding: 15px;
     position: relative;
 
-    @media screen and (max-width: 650px) {
+    @media screen and (max-width: 725px) {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
