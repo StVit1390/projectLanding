@@ -8,6 +8,7 @@ import * as S from './styles';
 // Tools
 import {FadeInSection} from '../elements/fadeSection/'
 
+
 // View
 import { Header } from '../components/header';
 import { FirstSection } from '../components/firstSection';
@@ -57,6 +58,7 @@ export default function Home() {
 
     const [local, setLocal] = useState('en')
     const [burger, setBurger] = useState(false)
+    
 
   useEffect(() => {
     const handleResize = () => {
@@ -79,9 +81,9 @@ export default function Home() {
     }),
     [local, setLocal, burger, setBurger]
   );
+
   
   return (
-    
     <LocalContext.Provider value={contextValue}>
       <ThemeProvider theme={mainTheme}>
           <CssBaseline />

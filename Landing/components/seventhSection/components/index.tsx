@@ -1,17 +1,21 @@
 // Core
-import React, { FC } from "react";
+import React, { FC, useState} from "react";
 
 // Styles
 import * as S from './styles'
 
 // MUI
 import { SvgIcon, Typography } from "@mui/material";
+import { AutohideSnackbar } from '../../../elements/copySnackbar/index';
 
 // Tools
 import copy from 'clipboard-copy';
 
 // Colors
 import {palette} from '../../../theme/theme'
+
+// Hook
+import { useSnackbar } from "../../../tools/useSnackbar";
 
 interface AccountFielProps {
     name: string,
@@ -26,12 +30,19 @@ export const AccountField: FC<AccountFielProps> = ({name, acc}) => {
     };
 
 
+    const { handleClick, handleClose, open } = useSnackbar()
+    const [snackbarKey, setSnackbarKey] = useState<number>(0);
+
     
     return (
         <S.Field>
             <Typography variant="body1">{name}</Typography>
             <Typography variant="h5">{textToCopy.replace(/(\d{4})(?=\d)/g, "$1 ")}</Typography>
-            <S.Copy onClick={handleCopyClick}>
+            <S.Copy onClick={()=>{
+                handleCopyClick();
+                handleClick();
+                setSnackbarKey((prevKey) => prevKey + 1)
+                }}>
                 <SvgIcon>
                     <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
                         <g clipPath="url(#clip0_4_176)">
@@ -46,6 +57,7 @@ export const AccountField: FC<AccountFielProps> = ({name, acc}) => {
                     </svg>
                 </SvgIcon>
             </S.Copy>
+            <AutohideSnackbar key={snackbarKey} open={open} handleClose={handleClose} />
         </S.Field>
     )
 
