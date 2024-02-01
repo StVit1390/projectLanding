@@ -111,7 +111,7 @@ export default function Home() {
             {popUpIsVisible && 
               <S.NoScroll>
                 <PopUp>
-                  
+                  {'children should be here'}
                 </PopUp>
               </S.NoScroll>
             }
