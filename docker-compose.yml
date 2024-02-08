@@ -25,10 +25,6 @@ services:
     build:
       context: ./Strapi
     container_name: strapi
-    env_file:
-     - ./Strapi/.env
-    ports:
-      - "1337:1337"
     networks:
       custom_net:
         ipv4_address: 172.10.1.3
@@ -45,6 +41,22 @@ services:
         ipv4_address: 172.10.1.4
     depends_on:
       - strapi
+
+  nginx:
+    image: nginx
+    container_name: nginx
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./ssl-test/nginx-selfsigned.crt:/etc/ssl/certs/nginx-selfsigned.crt
+      - ./ssl-test/nginx-selfsigned.key:/etc/ssl/private/nginx-selfsigned.key
+    environment:
+      - DOMAIN_NAME=REPLACE_ME
+    networks:
+      custom_net:
+        ipv4_address: 172.10.1.5
+    depends_on:
+      - strapi
+      - landing
 
 networks:
   custom_net:
